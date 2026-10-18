@@ -1,0 +1,15 @@
+name: Auto Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Vercel
+        uses: Gourav2609/vercel-auto-deploy@v1
+        with:
+          exclude-authors: 'Rohankatari12'
+          vercel-deploy-hook: ${{ secrets.VERCEL_DEPLOY_HOOK }}
